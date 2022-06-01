@@ -30,6 +30,12 @@ it('should render "task" when there is 1 task left', () => {
   </MockComponent>
   )
 
-  const paragraphElement = screen.getByText(/1 task left/);
-  expect(paragraphElement).toBeInTheDocument();
+  const paragraphElement = screen.getByTestId('myPara');
+  expect(paragraphElement).toContainHTML('p');
+  expect(paragraphElement).toBeVisible();
+  expect(paragraphElement).toHaveTextContent('task');
+  // using "not" keyword
+  expect(paragraphElement).not.toHaveTextContent('dontbehere');
+  //can access the properties of this element
+  expect(paragraphElement.textContent).toBe('1 task left');
 });
