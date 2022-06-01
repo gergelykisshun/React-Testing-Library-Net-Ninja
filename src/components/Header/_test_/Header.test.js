@@ -1,14 +1,17 @@
 import { render, screen } from '@testing-library/react';
 import Header from '../Header';
 
-it('should render same text passed into title prop (getByText)', () => {
-  // render the header component
-  render(<Header title="My Header"/>);
-  // select the heading in the component
-  const headingElement = screen.getByText(/my header/i);
-  // expect something from the heading
-  expect(headingElement).toBeInTheDocument();
+describe('All the tests for Header', () => {
+  it('should render same text passed into title prop (getByText)', () => {
+    // render the header component
+    render(<Header title="My Header"/>);
+    // select the heading in the component
+    const headingElement = screen.getByText(/my header/i);
+    // expect something from the heading
+    expect(headingElement).toBeInTheDocument();
+  });
 });
+
 
 
 // it('get the Cats header by role', () => {
